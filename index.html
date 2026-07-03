@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Business Startup Hub — Everything You Need to Start and Grow an Online Business</title>
+<meta name="description" content="Find top-rated freelancers and agencies to build, brand, and scale your online business — logo design, websites, SEO, ads, and AI automation, all vetted and ready to hire.">
+<meta name="keywords" content="online business services, freelancers, Fiverr, logo design, website design, SEO, digital marketing, startup tools">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Business Startup Hub — Everything You Need to Start and Grow an Online Business">
+<meta property="og:description" content="Find top-rated freelancers and agencies to build, brand, and scale your online business, all in one place.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=1200">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Business Startup Hub">
+<meta name="twitter:description" content="Everything you need to start and grow an online business, in one place.">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Business Startup Hub",
+  "description": "A curated directory of freelance services to help entrepreneurs start and grow an online business."
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+
+<style>
+  /* ============================================================
+     TOKENS
+     Concept: "The Assembly Line" — a startup's toolkit rendered
+     as a blueprint / schematic. Ink surface, paper surface,
+     violet + mint signal colors, mono labels as part tags.
+     ============================================================ */
+  :root{
+    --ink:        #0B1020;
+    --ink-soft:   #141A2E;
+    --paper:      #FAF8F4;
+    --paper-dim:  #F1EEE6;
+    --line:       #2A3252;
+    --line-soft:  rgba(255,255,255,0.09);
+    --violet:     #7C5CFF;
+    --violet-dim: #6247D9;
+    --mint:       #17D9B3;
+    --amber:      #FFB454;
+    --ink-text:   #E9E7F5;
+    --ink-text-dim: #9CA3C4;
+    --paper-text: #14172B;
+    --paper-text-dim: #5B5F79;
+
+    --display: 'Space Grotesk', sans-serif;
+    --body: 'Inter', sans-serif;
+    --mono: 'JetBrains Mono', monospace;
+
+    --radius: 14px;
+    --max: 1160px;
+  }
+
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html{ scroll-behavior:smooth; }
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    *{ animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; }
+  }
+
+  body{
+    font-family:var(--body);
+    background:var(--paper);
+    color:var(--paper-text);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+
+  a{ color:inherit; text-decoration:none; }
+  img{ max-width:100%; display:block; }
+  button{ font-family:inherit; cursor:pointer; border:none; background:none; }
+
+  .wrap{ max-width:var(--max); margin:0 auto; padding:0 24px; }
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--violet-dim);
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:6px; height:6px;
+    background:var(--mint);
+    border-radius:2px;
+    display:inline-block;
+  }
+  h1,h2,h3{ font-family:var(--display); font-weight:700; letter-spacing:-0.02em; }
+  .section{ padding:96px 0; }
+  .section-head{ max-width:640px; margin-bottom:52px; }
+  .section-head h2{ font-size:clamp(28px,4vw,42px); margin-top:14px; line-height:1.12; }
+  .section-head p{ margin-top:16px; color:var(--paper-text-dim); font-size:17px; }
+
+  /* reveal */
+  .reveal{ opacity:0; transform:translateY(22px); transition:opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.in{ opacity:1; transform:translateY(0); }
+
+  /* ============ NAV ============ */
+  header.nav{
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    background:rgba(250,248,244,0.72);
+    backdrop-filter:blur(14px) saturate(160%);
+    -webkit-backdrop-filter:blur(14px) saturate(160%);
+    border-bottom:1px solid rgba(20,23,43,0.08);
+  }
+  .nav-inner{ display:flex; align-items:center; justify-content:space-between; height:72px; }
+  .brand{ display:flex; align-items:center; gap:10px; font-family:var(--display); font-weight:700; font-size:18px; }
+  .brand-mark{
+    width:30px; height:30px; border-radius:8px;
+    background:linear-gradient(135deg,var(--violet),var(--mint));
+    display:flex; align-items:center; justify-content:center;
+    font-family:var(--mono); font-size:13px; color:var(--ink); font-weight:700;
+  }
+  .nav-links{ display:flex; gap:32px; font-size:14px; font-weight:500; }
+  .nav-links a{ opacity:0.75; transition:opacity 0.2s; }
+  .nav-links a:hover{ opacity:1; }
+  .nav-cta{
+    padding:10px 20px; border-radius:999px;
+    background:var(--ink); color:var(--paper);
+    font-size:14px; font-weight:600;
+    transition:transform 0.2s ease, background 0.2s ease;
+  }
+  .nav-cta:hover{ transform:translateY(-2px); background:var(--violet-dim); }
+  .nav-toggle{ display:none; }
+
+  @media (max-width: 860px){
+    .nav-links{ display:none; }
+    .nav-toggle{ display:block; font-family:var(--mono); font-size:13px; border:1px solid var(--line-soft); padding:8px 14px; border-radius:8px; }
+  }
+
+  /* ============ HERO ============ */
+  .hero{
+    background:var(--ink);
+    color:var(--ink-text);
+    padding:168px 0 110px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero::before{
+    content:"";
+    position:absolute; inset:0;
+    background-image:
+      linear-gradient(var(--line-soft) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line-soft) 1px, transparent 1px);
+    background-size:64px 64px;
+    mask-image:radial-gradient(ellipse 70% 60% at 50% 20%, black 10%, transparent 75%);
+    opacity:0.6;
+  }
+  .hero-grid{
+    position:relative;
+    display:grid;
+    grid-template-columns:1.05fr 0.95fr;
+    gap:56px;
+    align-items:center;
+  }
+  .hero .eyebrow{ color:var(--mint); }
+  .hero h1{
+    font-size:clamp(34px,5vw,58px);
+    line-height:1.06;
+    margin-top:18px;
+  }
+  .hero h1 .accent{
+    background:linear-gradient(100deg,var(--violet),var(--mint));
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+  }
+  .hero p.sub{
+    margin-top:22px;
+    font-size:18px;
+    color:var(--ink-text-dim);
+    max-width:480px;
+  }
+  .hero-ctas{ display:flex; gap:14px; margin-top:36px; flex-wrap:wrap; }
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:15px 26px;
+    border-radius:10px;
+    font-weight:600; font-size:15px;
+    transition:transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  }
+  .btn-primary{
+    background:linear-gradient(100deg,var(--violet),#9B7BFF);
+    color:#fff;
+    box-shadow:0 8px 26px rgba(124,92,255,0.35);
+  }
+  .btn-primary:hover{ transform:translateY(-3px); box-shadow:0 14px 32px rgba(124,92,255,0.45); }
+  .btn-ghost{
+    background:rgba(255,255,255,0.06);
+    color:var(--ink-text);
+    border:1px solid var(--line-soft);
+  }
+  .btn-ghost:hover{ background:rgba(255,255,255,0.12); transform:translateY(-3px); }
+  .btn-dark{ background:var(--ink); color:var(--paper); }
+  .btn-dark:hover{ transform:translateY(-3px); background:var(--violet-dim); color:#fff; }
+
+  .hero-proof{
+    margin-top:44px; display:flex; gap:28px; flex-wrap:wrap;
+    font-family:var(--mono); font-size:12px; color:var(--ink-text-dim);
+    letter-spacing:0.04em;
+  }
+  .hero-proof strong{ color:var(--ink-text); font-family:var(--body); font-size:15px; display:block; }
+
+  /* Signature element: the stack assembler */
+  .stack{
+    position:relative; height:460px;
+    perspective:1200px;
+  }
+  .stack-card{
+    position:absolute;
+    width:230px;
+    padding:18px;
+    border-radius:12px;
+    background:var(--ink-soft);
+    border:1px solid var(--line-soft);
+    box-shadow:0 20px 50px rgba(0,0,0,0.35);
+    transition:transform 0.4s ease;
+    transform-style:preserve-3d;
+  }
+  .stack-card .tag{ font-family:var(--mono); font-size:10px; color:var(--mint); letter-spacing:0.08em; }
+  .stack-card .title{ font-family:var(--display); font-size:15px; margin-top:8px; color:var(--ink-text); }
+  .stack-card .bar{ height:5px; border-radius:3px; background:var(--line); margin-top:14px; overflow:hidden; }
+  .stack-card .bar span{ display:block; height:100%; background:linear-gradient(90deg,var(--violet),var(--mint)); }
+  .stack-card.c1{ top:10px; left:20px; transform:rotate(-7deg); }
+  .stack-card.c2{ top:90px; left:130px; transform:rotate(4deg); z-index:2; }
+  .stack-card.c3{ top:210px; left:40px; transform:rotate(-3deg); z-index:3; }
+  .stack-card.c4{ top:290px; left:170px; transform:rotate(8deg); z-index:1; }
+  .stack .dashed-line{
+    position:absolute; border-top:1.5px dashed var(--line);
+    opacity:0.7;
+  }
+  @media (max-width: 900px){
+    .hero-grid{ grid-template-columns:1fr; }
+    .stack{ height:340px; }
+  }
+
+  /* ============ MARQUEE STRIP ============ */
+  .strip{
+    background:var(--paper-dim);
+    border-top:1px solid rgba(20,23,43,0.08);
+    border-bottom:1px solid rgba(20,23,43,0.08);
+    padding:20px 0;
+    overflow:hidden;
+  }
+  .strip-track{
+    display:flex; gap:56px; white-space:nowrap;
+    font-family:var(--mono); font-size:13px; color:var(--paper-text-dim);
+    animation:scroll-left 26s linear infinite;
+    width:max-content;
+  }
+  @keyframes scroll-left{ from{ transform:translateX(0);} to{ transform:translateX(-50%);} }
+
+  /* ============ SERVICES ============ */
+  .services-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(260px,1fr));
+    gap:18px;
+  }
+  .svc-card{
+    position:relative;
+    background:#fff;
+    border:1px solid rgba(20,23,43,0.08);
+    border-radius:var(--radius);
+    padding:26px 22px;
+    transition:transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  }
+  .svc-card::before, .svc-card::after{
+    content:"";
+    position:absolute; width:10px; height:10px;
+    border-color:var(--violet);
+    opacity:0; transition:opacity 0.25s ease;
+  }
+  .svc-card::before{ top:8px; left:8px; border-top:2px solid; border-left:2px solid; }
+  .svc-card::after{ bottom:8px; right:8px; border-bottom:2px solid; border-right:2px solid; }
+  .svc-card:hover{ transform:translateY(-5px); box-shadow:0 18px 38px rgba(20,23,43,0.10); border-color:transparent; }
+  .svc-card:hover::before, .svc-card:hover::after{ opacity:1; }
+  .svc-icon{
+    width:42px; height:42px; border-radius:10px;
+    background:var(--paper-dim);
+    display:flex; align-items:center; justify-content:center;
+    font-size:20px;
+    margin-bottom:16px;
+  }
+  .svc-card h3{ font-size:17px; margin-bottom:8px; }
+  .svc-card p{ color:var(--paper-text-dim); font-size:14px; margin-bottom:18px; }
+  .svc-cta{
+    display:inline-flex; align-items:center; gap:6px;
+    font-size:13px; font-weight:600; color:var(--violet-dim);
+    font-family:var(--mono);
+  }
+  .svc-cta::after{ content:"→"; transition:transform 0.2s ease; }
+  .svc-card:hover .svc-cta::after{ transform:translateX(4px); }
+
+  /* ============ WHY ============ */
+  .why{ background:var(--ink); color:var(--ink-text); }
+  .why .section-head p{ color:var(--ink-text-dim); }
+  .why-list{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:1px;
+    background:var(--line-soft);
+    border:1px solid var(--line-soft);
+    border-radius:var(--radius);
+    overflow:hidden;
+  }
+  .why-item{ background:var(--ink); padding:28px 24px; }
+  .why-item .num{ font-family:var(--mono); font-size:12px; color:var(--mint); }
+  .why-item h3{ font-size:17px; margin-top:12px; margin-bottom:8px; }
+  .why-item p{ font-size:14px; color:var(--ink-text-dim); }
+  @media (max-width: 760px){ .why-list{ grid-template-columns:1fr; } }
+
+  /* ============ HOW IT WORKS ============ */
+  .steps{
+    display:grid; grid-template-columns:repeat(4,1fr); gap:20px;
+    position:relative;
+  }
+  .step{ position:relative; padding-top:8px; }
+  .step .step-num{
+    font-family:var(--display); font-size:34px; font-weight:700;
+    color:transparent; -webkit-text-stroke:1.5px var(--violet);
+  }
+  .step h3{ font-size:17px; margin:12px 0 8px; }
+  .step p{ font-size:14px; color:var(--paper-text-dim); }
+  .step:not(:last-child)::after{
+    content:""; position:absolute; top:22px; left:calc(100% - 6px);
+    width:calc(20px + 2px); border-top:1.5px dashed rgba(20,23,43,0.25);
+    display:none;
+  }
+  @media (min-width: 761px){ .step:not(:last-child)::after{ display:block; } }
+  @media (max-width: 760px){ .steps{ grid-template-columns:1fr; gap:32px; } }
+
+  /* ============ TRUST ============ */
+  .trust-grid{ display:grid; grid-template-columns:repeat(5,1fr); gap:24px; text-align:center; }
+  .trust-grid .stat{ font-family:var(--display); font-size:30px; color:var(--violet-dim); }
+  .trust-grid .label{ font-family:var(--mono); font-size:11px; color:var(--paper-text-dim); margin-top:6px; letter-spacing:0.04em; }
+  @media (max-width:760px){ .trust-grid{ grid-template-columns:repeat(2,1fr); } }
+
+  /* ============ TESTIMONIALS ============ */
+  .testi-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+  .testi-card{
+    background:var(--paper-dim);
+    border-radius:var(--radius);
+    padding:26px;
+    border:1px solid rgba(20,23,43,0.06);
+  }
+  .testi-card .quote{ font-size:15px; color:var(--paper-text); margin-bottom:20px; }
+  .testi-who{ display:flex; align-items:center; gap:12px; }
+  .avatar{
+    width:38px; height:38px; border-radius:50%;
+    background:linear-gradient(135deg,var(--violet),var(--mint));
+    display:flex; align-items:center; justify-content:center;
+    color:#fff; font-family:var(--display); font-size:14px; font-weight:700;
+  }
+  .testi-who .name{ font-weight:600; font-size:14px; }
+  .testi-who .role{ font-size:12px; color:var(--paper-text-dim); }
+  @media (max-width:900px){ .testi-grid{ grid-template-columns:1fr; } }
+
+  /* ============ FAQ ============ */
+  .faq-item{
+    border-bottom:1px solid rgba(20,23,43,0.1);
+  }
+  .faq-q{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:22px 4px; font-weight:600; font-size:16px;
+    width:100%; text-align:left;
+  }
+  .faq-q .plus{
+    font-family:var(--mono); font-size:18px; color:var(--violet-dim);
+    transition:transform 0.25s ease;
+  }
+  .faq-item.open .plus{ transform:rotate(45deg); }
+  .faq-a{
+    max-height:0; overflow:hidden; transition:max-height 0.3s ease;
+    font-size:14.5px; color:var(--paper-text-dim); padding:0 4px;
+  }
+  .faq-a p{ padding-bottom:20px; }
+
+  /* ============ FINAL CTA ============ */
+  .final{
+    background:linear-gradient(160deg,var(--ink) 0%, #171034 100%);
+    color:var(--ink-text);
+    padding:110px 0;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+  }
+  .final::before{
+    content:""; position:absolute; width:600px; height:600px;
+    background:radial-gradient(circle, rgba(124,92,255,0.35), transparent 70%);
+    top:-260px; left:50%; transform:translateX(-50%);
+  }
+  .final h2{ font-size:clamp(28px,5vw,44px); position:relative; }
+  .final p{ margin:18px auto 34px; color:var(--ink-text-dim); max-width:460px; position:relative; }
+  .final .btn{ position:relative; }
+
+  /* ============ FOOTER ============ */
+  footer{ background:var(--ink); color:var(--ink-text-dim); padding:56px 0 30px; font-size:14px; }
+  .footer-grid{ display:flex; justify-content:space-between; flex-wrap:wrap; gap:32px; padding-bottom:36px; border-bottom:1px solid var(--line-soft); }
+  .footer-brand .brand{ color:var(--ink-text); }
+  .footer-brand p{ margin-top:10px; max-width:280px; font-size:13px; }
+  .footer-cols{ display:flex; gap:56px; flex-wrap:wrap; }
+  .footer-col h4{ font-family:var(--mono); font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink-text); margin-bottom:14px; }
+  .footer-col a{ display:block; margin-bottom:10px; opacity:0.8; transition:opacity 0.2s; }
+  .footer-col a:hover{ opacity:1; color:var(--mint); }
+  .footer-bottom{ display:flex; justify-content:space-between; align-items:center; padding-top:24px; font-size:13px; flex-wrap:wrap; gap:12px; }
+  .socials{ display:flex; gap:14px; }
+  .socials a{ width:34px; height:34px; border-radius:50%; border:1px solid var(--line-soft); display:flex; align-items:center; justify-content:center; font-size:14px; transition:background 0.2s; }
+  .socials a:hover{ background:rgba(255,255,255,0.08); }
+
+  @media (max-width: 760px){
+    .section{ padding:64px 0; }
+    .trust-grid{ text-align:left; }
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <div class="brand"><span class="brand-mark">BH</span> Business Startup Hub</div>
+    <nav class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#how">How it works</a>
+      <a href="#testimonials">Reviews</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a class="nav-cta cta-link" href="#" target="_blank" rel="noopener sponsored">Get Started</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">The startup toolkit, assembled</span>
+      <h1>Everything you need to <span class="accent">start and grow</span> an online business</h1>
+      <p class="sub">Find top-rated freelancers and agencies to build, brand, and scale your online business faster — hand-picked from trusted Fiverr professionals.</p>
+      <div class="hero-ctas">
+        <a href="#services" class="btn btn-ghost">Explore Business Services</a>
+        <a href="#" target="_blank" rel="noopener sponsored" class="btn btn-primary cta-link">Start Building Now</a>
+      </div>
+      <div class="hero-proof">
+        <div><strong>13</strong>service categories</div>
+        <div><strong>4.8+</strong>avg. rated pros</div>
+        <div><strong>24–72h</strong>typical delivery</div>
+      </div>
+    </div>
+
+    <div class="stack" id="stack">
+      <div class="stack-card c1"><div class="tag">// BRAND</div><div class="title">Logo & Identity</div><div class="bar"><span style="width:78%"></span></div></div>
+      <div class="stack-card c2"><div class="tag">// WEB</div><div class="title">Landing Page</div><div class="bar"><span style="width:64%"></span></div></div>
+      <div class="stack-card c3"><div class="tag">// GROWTH</div><div class="title">SEO & Ads</div><div class="bar"><span style="width:92%"></span></div></div>
+      <div class="stack-card c4"><div class="tag">// AI</div><div class="title">Automation</div><div class="bar"><span style="width:55%"></span></div></div>
+    </div>
+  </div>
+</section>
+
+<div class="strip">
+  <div class="strip-track" id="strip">
+    <span>LOGO DESIGN</span><span>WEBSITE DEVELOPMENT</span><span>SHOPIFY SETUP</span><span>SEO SERVICES</span><span>CONTENT WRITING</span><span>SOCIAL MEDIA MARKETING</span><span>VIDEO EDITING</span><span>AI AUTOMATION</span>
+  </div>
+</div>
+
+<section class="section" id="services">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Featured services</span>
+      <h2>Only the highest-converting services, curated</h2>
+      <p>No endless scrolling through thousands of gigs. Just the categories entrepreneurs actually need, matched to vetted professionals.</p>
+    </div>
+
+    <div class="services-grid" id="services-grid"></div>
+  </div>
+</section>
+
+<section class="why" id="why-section">
+  <div class="wrap section">
+    <div class="section-head reveal">
+      <span class="eyebrow">Why Business Startup Hub</span>
+      <h2>One place, instead of ten open tabs</h2>
+      <p>Skip the platform-hopping. Every service here is pre-selected for entrepreneurs, creators, and online business owners — so you spend less time searching and more time launching.</p>
+    </div>
+    <div class="why-list reveal">
+      <div class="why-item"><div class="num">01</div><h3>Saves time</h3><p>Curated categories mean no wading through irrelevant gigs.</p></div>
+      <div class="why-item"><div class="num">02</div><h3>Trusted professionals</h3><p>Every category maps to highly-rated, review-backed freelancers.</p></div>
+      <div class="why-item"><div class="num">03</div><h3>Beginner-friendly</h3><p>Clear categories make it easy to know exactly what to order.</p></div>
+      <div class="why-item"><div class="num">04</div><h3>Affordable services</h3><p>Options across every budget, from first launch to full scale.</p></div>
+      <div class="why-item"><div class="num">05</div><h3>Fast delivery</h3><p>Many services ship in 24–72 hours, so momentum doesn't stall.</p></div>
+      <div class="why-item"><div class="num">06</div><h3>Global talent pool</h3><p>Access specialists across time zones, niches, and skill sets.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="how">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">How it works</span>
+      <h2>From idea to hired, in four steps</h2>
+    </div>
+    <div class="steps reveal">
+      <div class="step"><div class="step-num">01</div><h3>Browse services</h3><p>Scan the curated categories and find the one your business needs right now.</p></div>
+      <div class="step"><div class="step-num">02</div><h3>Choose a freelancer</h3><p>Compare ratings, reviews, and delivery times to pick the right fit.</p></div>
+      <div class="step"><div class="step-num">03</div><h3>Place your order</h3><p>Share your brief and requirements directly through a secure checkout.</p></div>
+      <div class="step"><div class="step-num">04</div><h3>Grow your business</h3><p>Receive your deliverable and put it to work — then order the next piece.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background:var(--paper-dim)">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Why Fiverr works</span>
+      <h2>Built on a decade of freelance trust</h2>
+    </div>
+    <div class="trust-grid reveal">
+      <div><div class="stat">4M+</div><div class="label">ACTIVE BUYERS</div></div>
+      <div><div class="stat">1M+</div><div class="label">VERIFIED SELLERS</div></div>
+      <div><div class="stat">700+</div><div class="label">SERVICE CATEGORIES</div></div>
+      <div><div class="stat">100%</div><div class="label">SECURE PAYMENTS</div></div>
+      <div><div class="stat">24H</div><div class="label">AVG. FIRST RESPONSE</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="testimonials">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">From the community</span>
+      <h2>Entrepreneurs who assembled their stack here</h2>
+    </div>
+    <div class="testi-grid reveal">
+      <div class="testi-card">
+        <p class="quote">"I hired a logo designer and a landing page builder in the same afternoon. My store looked legitimate within a week instead of a month."</p>
+        <div class="testi-who"><div class="avatar">A</div><div><div class="name">Amara O.</div><div class="role">Skincare brand founder</div></div></div>
+      </div>
+      <div class="testi-card">
+        <p class="quote">"The SEO service alone paid for itself in the first month. I finally stopped guessing which freelancer to trust."</p>
+        <div class="testi-who"><div class="avatar">D</div><div><div class="name">David K.</div><div class="role">Newsletter creator</div></div></div>
+      </div>
+      <div class="testi-card">
+        <p class="quote">"As a total beginner, having services pre-sorted by category meant I didn't waste money on the wrong gig twice."</p>
+        <div class="testi-who"><div class="avatar">M</div><div><div class="name">Marisol T.</div><div class="role">Etsy shop owner</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="faq" style="background:var(--paper-dim)">
+  <div class="wrap" style="max-width:820px;">
+    <div class="section-head reveal">
+      <span class="eyebrow">FAQ</span>
+      <h2>Questions, answered</h2>
+    </div>
+    <div class="reveal" id="faq-list">
+      <div class="faq-item">
+        <button class="faq-q"><span>Is Fiverr free to use?</span><span class="plus">+</span></button>
+        <div class="faq-a"><p>Yes. Browsing and messaging sellers is free — you only pay when you place an order.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span>Can beginners hire freelancers?</span><span class="plus">+</span></button>
+        <div class="faq-a"><p>Absolutely. Most gig descriptions are written for first-time buyers, and sellers are used to guiding beginners through the process.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span>How do I choose the right service?</span><span class="plus">+</span></button>
+        <div class="faq-a"><p>Start with the category matching your most urgent need, then compare ratings, delivery time, and portfolio samples before ordering.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span>How fast can I get results?</span><span class="plus">+</span></button>
+        <div class="faq-a"><p>Many gigs deliver within 24–72 hours, though complex projects like full websites can take one to two weeks.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span>Is Fiverr safe and reliable?</span><span class="plus">+</span></button>
+        <div class="faq-a"><p>Payments are held securely until you approve the delivered work, and every seller is rated by real buyers.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="wrap">
+    <h2>Start building your online business today</h2>
+    <p>Get access to expert freelancers and grow faster with proven services.</p>
+    <a href="#" target="_blank" rel="noopener sponsored" class="btn btn-primary cta-link">Get Started Now</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="brand"><span class="brand-mark">BH</span> Business Startup Hub</div>
+        <p>A curated directory of freelance services for entrepreneurs building online businesses.</p>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="#">About Business Startup Hub</a>
+          <a href="#">Affiliate Disclosure</a>
+          <a href="#">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Use</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Business Startup Hub. This site contains affiliate links; we may earn a commission at no extra cost to you.</span>
+      <div class="socials">
+        <a href="#" aria-label="Twitter">𝕏</a>
+        <a href="#" aria-label="Instagram">◎</a>
+        <a href="#" aria-label="Pinterest">📌</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  /* =========================================================
+     1) SET YOUR FIVERR AFFILIATE LINK HERE — ONE PLACE ONLY.
+     Every CTA button on the page will automatically use it.
+     ========================================================= */
+  const AFFILIATE_LINK = "PASTE_YOUR_FIVERR_AFFILIATE_LINK_HERE";
+
+  document.querySelectorAll(".cta-link").forEach(function(el){
+    el.setAttribute("href", AFFILIATE_LINK);
+  });
+
+  /* 2) Featured services data + render */
+  const services = [
+    { icon:"🎨", title:"Professional Logo Design", desc:"A distinctive mark that makes your brand instantly recognizable." },
+    { icon:"💻", title:"Website Design & Development", desc:"Custom-built sites that convert visitors into customers." },
+    { icon:"📰", title:"WordPress Website Creation", desc:"Flexible, content-ready sites on the world's most-used CMS." },
+    { icon:"🛒", title:"Shopify Store Setup", desc:"A store built to sell, from theme to checkout." },
+    { icon:"📄", title:"Landing Page Design", desc:"High-converting single pages for launches and campaigns." },
+    { icon:"🔍", title:"SEO Services", desc:"Rank higher and get found by people already searching for you." },
+    { icon:"✍️", title:"Content Writing & Copywriting", desc:"Words that explain, persuade, and sell — in your brand voice." },
+    { icon:"📣", title:"Social Media Marketing", desc:"Consistent, on-brand content across the platforms that matter." },
+    { icon:"🎬", title:"Professional Video Editing", desc:"Polished video content, from raw footage to final cut." },
+    { icon:"▶️", title:"YouTube Growth (Editing + Thumbnails)", desc:"Editing and thumbnails engineered for watch time and clicks." },
+    { icon:"📊", title:"Google & Facebook Ads Management", desc:"Campaigns built, tracked, and optimized by specialists." },
+    { icon:"🧑‍💼", title:"Virtual Assistant Services", desc:"Delegate the admin work and get hours back in your week." },
+    { icon:"🤖", title:"AI Automation & ChatGPT Experts", desc:"Custom workflows and AI tools that run your business on autopilot." }
+  ];
+
+  const grid = document.getElementById("services-grid");
+  grid.innerHTML = services.map(function(s){
+    return '<div class="svc-card">' +
+      '<div class="svc-icon">' + s.icon + '</div>' +
+      '<h3>' + s.title + '</h3>' +
+      '<p>' + s.desc + '</p>' +
+      '<a class="svc-cta cta-link" href="#" target="_blank" rel="noopener sponsored">Hire an Expert</a>' +
+    '</div>';
+  }).join("");
+  grid.querySelectorAll(".cta-link").forEach(function(el){ el.setAttribute("href", AFFILIATE_LINK); });
+
+  /* 3) Marquee: duplicate content for seamless loop */
+  const strip = document.getElementById("strip");
+  strip.innerHTML += strip.innerHTML;
+
+  /* 4) FAQ accordion */
+  document.querySelectorAll(".faq-item").forEach(function(item){
+    const q = item.querySelector(".faq-q");
+    const a = item.querySelector(".faq-a");
+    q.addEventListener("click", function(){
+      const isOpen = item.classList.contains("open");
+      document.querySelectorAll(".faq-item.open").forEach(function(openItem){
+        openItem.classList.remove("open");
+        openItem.querySelector(".faq-a").style.maxHeight = null;
+      });
+      if(!isOpen){
+        item.classList.add("open");
+        a.style.maxHeight = a.scrollHeight + "px";
+      }
+    });
+  });
+
+  /* 5) Scroll reveal */
+  const revealEls = document.querySelectorAll(".reveal");
+  if("IntersectionObserver" in window){
+    const io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add("in");
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold:0.12 });
+    revealEls.forEach(function(el){ io.observe(el); });
+  } else {
+    revealEls.forEach(function(el){ el.classList.add("in"); });
+  }
+
+  /* 6) Hero stack parallax on mouse move (desktop only, respects reduced motion) */
+  const stack = document.getElementById("stack");
+  const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if(stack && !prefersReduced && window.matchMedia("(min-width: 901px)").matches){
+    const cards = stack.querySelectorAll(".stack-card");
+    stack.addEventListener("mousemove", function(e){
+      const rect = stack.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width - 0.5;
+      const y = (e.clientY - rect.top) / rect.height - 0.5;
+      cards.forEach(function(card, i){
+        const depth = (i + 1) * 6;
+        const baseRotate = card.classList.contains("c1") ? -7 : card.classList.contains("c2") ? 4 : card.classList.contains("c3") ? -3 : 8;
+        card.style.transform = "rotate(" + baseRotate + "deg) translate(" + (x * depth) + "px," + (y * depth) + "px)";
+      });
+    });
+    stack.addEventListener("mouseleave", function(){
+      cards.forEach(function(card){ card.style.transform = ""; });
+    });
+  }
+
+  /* 7) Mobile nav toggle placeholder (links still reachable via scroll) */
+})();
+</script>
+</body>
+</html>
